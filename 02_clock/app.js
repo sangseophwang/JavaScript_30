@@ -10,11 +10,11 @@ function setDate() {
   secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
 
   const mins = now.getMinutes();
-  const minsDegrees = (mins / 60) * 360 + (seconds / 60) * 6 + 90;
+  const minsDegrees = (mins / 60) * 360 + (seconds / 60) * 6 + 90; // 60초가 다 돌아야 1개씩 증가하기 때문에 뒤에 초 계산을 더해준다.
   minsHand.style.transform = `rotate(${minsDegrees}deg)`;
 
   const hour = now.getHours();
-  const hourDegrees = (hour / 12) * 360 + (mins / 60) * 30 + 90;
+  const hourDegrees = (hour / 12) * 360 + (mins / 60) * 30 + 90; // 60분이 돼야 시간이 1씩 증가하기 때문에 뒤에 분 계산을 더해준다.
   hourHand.style.transform = `rotate(${hourDegrees}deg)`;
 }
 

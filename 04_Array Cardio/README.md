@@ -4,9 +4,32 @@
 
 ### 배운 점
 
-1. cubic-bezier
+1. 1500년대에 태어난 발명가 필터링하기 (filter)
 
-- cubic-bezier() function은 CSS에서 transition 속성 혹은 transition-timing-function 속성에서
-  전환 시작과 끝까지의 효과를 제어하는데 쓰인다.
-- 곡선 그래프로 에니메이션이 진행되는 느낌을 설정할 수 있는데, 여기서는 ^ <- 이런 느낌의 그래프를 만들어서 침이
-  넘어갔다가 다시 돌아오는 효과를 만들어 틱✨ 틱✨ 하는 모션을 만들었다.
+- filter란 주어진 함수의 조건에 맞는 데이터를 모아 새로운 배열로 반환하는 것이다.
+
+```javascript
+const fifteen = inventors.filter(function (inventor) {
+  if ((inventor.year >= 1500) & (inventor.year < 1600)) {
+    return true;
+  }
+});
+console.table(fifteen);
+
+// 코드 줄이기
+const fifteen = inventor.filter(
+  (inventer) => inventor.year >= 1500 && inventor.year < 1600
+);
+console.table(fifteen);
+```
+
+2. 발명가들의 성과 이름을 배열로 달라. (map)
+
+- map이란 배열 내의 모든 요소 각각에 대해 주어진 함수를 호출한 결과를 모아 새 배열을 만드는 것이다.
+
+```javascript
+const fullNames = inventors.map(
+  (inventor) => `${inventor.first} ${inventor.last}`
+);
+console.log(fullNames);
+```

@@ -79,3 +79,47 @@ console.table(livedYear);
 ```
 
 6. 이름에 'de'가 포함된 파리 대로 목록 만들기
+
+- [...] : rest parameter, 점 3개 뒤에 오는 내용들이 배열로 저장된다. 또는 배열 안에서 사용하면 배열이 풀어진다.
+- 즉 배열을 만들었다가 풀었다가 하는 스위치같은 역할을 한다.
+- rest parameter로 만든 배열을 map으로 함수를 적용해 새로 배열을 만들고 거기에 filter를 거쳐 원하는 데이터만 추출한다.
+
+```javascript
+const category = document.querySelector(".mw-category");
+const links = [...category.querySeelctorAll("a")];
+const de = links
+  .map((link) => link.textContent)
+  .filter((stName) => stName.includes("de"));
+```
+
+7. 사람들의 이름을 알파벳 기준으로 분류하라. (sort)
+
+- 첫번째 방법을 보면
+
+```javascript
+const alpha = people.sort(function (lastOne, nextOne) {
+  const [aLast, aFirst] = lastOne.split(", ");
+  const [bLast, bFirst] = nextOne.split(", ");
+  return aLast > bLast ? 1 : -1;
+});
+console.log(alpha);
+
+people.sort((a, b) => {
+  return a.split(", ")[1] > b.split(". ")[1] ? 1 : -1;
+});
+```
+
+8. 배열 안에 각 요소가 몇개씩 있는지 카운팅하라.
+
+- 빈 객체를 만들고 key와 value를 받도록 설정한다. 그리고 확인될 때마다 value에 +1을 함으로써 각 요소별 개수를 확인할 수 있다.
+- 리턴 값은 {item : count} 이다.
+
+```javascript
+const transportation = data.reduce(function (obj, item) {
+  if (!obj[item]) {
+    obj[item] = 0;
+  }
+  obj[item]++;
+  return obj;
+}, {});
+```
